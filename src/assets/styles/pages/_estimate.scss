@@ -1,0 +1,57 @@
+$color_leftContainer: rgb(224, 217, 217);
+
+$color_progress_background: rgb(224, 217, 217);
+$color_progressbar: rgb(0, 0, 0);
+
+$color_right_span: rgb(141, 140, 140);
+
+.left_container {
+  position: relative;
+  overflow: scroll;
+
+  // left container
+  .quections {
+    margin-left: 20%;
+    margin-top: 10%;
+  }
+  .progressShower {
+    position: fixed;
+    margin-top: 200px;
+    margin-left: 80px;
+    padding: 0;
+    height: 200px;
+
+    .progressbar {
+        width: 100%;
+        transform: rotate(90deg);
+        margin-top: 10px 0;
+    }
+  }
+}
+// right container
+.right_container {
+  height: inherit;
+  background-color: $color_leftContainer;
+  padding: 40px;
+
+  .middle {
+    margin-top: 20rem;
+  }
+
+  span {
+    color: $color_right_span;
+  }
+}
+
+//quections style
+.quection{
+  margin: 100px 0;
+}
+.radio_filed{
+  display:block;
+  padding: 10px;
+  font-size: larger;
+}
+.group{
+  margin-left: 7px;
+}
