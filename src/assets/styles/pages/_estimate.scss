@@ -1,0 +1,66 @@
+@import 'color';
+
+.button{
+  width: 300px;
+}
+  // left col
+  .quections {
+    margin-left: 20%;
+    margin-top: 10%;
+  }
+  .progressShower {
+    position: fixed;
+    margin-top: 10rem;
+    margin-left: 8rem;
+    padding: 0;
+    height: 250px;
+    width: 8px;
+    border-radius: 10;
+
+    .progressbar-background{
+      position:absolute;
+      height: 100%;
+      width: 100%;
+      background-color: $color_progress_background;
+      border-radius: 50px;
+    }
+
+    .progressbar {
+      position:absolute;
+      width: 100%;
+      background-color: $color_progressbar;
+      border-radius: 50px;
+    }
+  }
+
+// right col
+  .right_container {
+    position: fixed;
+    right: 0;
+    height: 100%;
+    background-color: $color_leftContainer;
+    padding: 40px;
+
+    .middle {
+      margin-top: 10rem;
+    }
+
+    .watermark{
+      position: fixed;
+      bottom: 0;
+      width: 150px;
+      color: $color_watermark;
+    }
+  }
+
+//quections style
+  .quection{
+    margin: 100px 0;
+  }
+  .radio_filed{
+    font-size: larger;
+  }
+
+  .spanFontColor {
+      color: $color_font_span;
+    }
