@@ -1,16 +1,20 @@
-import React from 'react'
-import { ProgressBar } from 'react-bootstrap';
+import { React} from 'react';
+import { connect } from 'react-redux';
 
-const Progressbar = () => {
-
-    const progressValue = 80;
-    
+const Progressbar = (props) => {
+    const { progress } = props;
+    const progressHight =progress+"%"
     return (
         <div className='progressShower'>
-            <h6>{progressValue}%</h6>
-            <ProgressBar now={progressValue} className='progressbar'/>
+            <h6>{progressHight}</h6>
+            <div className='progressbar-background' />
+            <div className='progressbar' style={{height:progressHight}}/>
         </div>
     )
 }
-
-export default Progressbar
+const mapStateToProps = (state) => {
+  return {
+    progress: state.estimate.progress,
+  };
+};
+export default connect(mapStateToProps)(Progressbar);

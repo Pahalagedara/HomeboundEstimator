@@ -1,24 +1,25 @@
 import React from 'react'
-import QuectionA from './QuectionA'
-import QuectionB from './QuectionB'
-import QuectionC from './QuectionC'
-import QuectionD from './QuectionD'
-import QuectionE from './QuectionE'
-import QuectionF from './QuectionF'
-import QuectionG from './QuectionG'
-import QuectionH from './QuectionH'
+import SectionA from './SectionA'
+import SectionB from './SectionB'
+import SectionC from './SectionC'
+import SectionD from './SectionD'
+import SectionE from './SectionE'
+import SectionF from './SectionF'
+import SectionG from './SectionG'
+import SectionH from './SectionH'
+
 
 const Quections = () => {
     return (
         <div className='quections'>
-            <QuectionA />
-            <QuectionB />
-            <QuectionC />
-            <QuectionD />
-            <QuectionE />
-            <QuectionF />
-            <QuectionG />
-            <QuectionH />
+            <SectionA />
+            <SectionB />
+            <SectionC />
+            <SectionD />
+            <SectionE />
+            <SectionF />
+            <SectionG />
+            <SectionH />
         </div>
     )
 }
