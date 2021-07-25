@@ -1,28 +1,32 @@
 import {React,useState,useEffect} from 'react'
 import { Button } from 'react-bootstrap'
-import { changeLandAvailability, setProgress } from '../../../store/actions/estimateAction'
+import { changeLandAvailability, incProgress, decProgressTo } from '../../../store/actions/estimateAction'
 import { connect } from 'react-redux'
 import RadioButton from '../../RadioButton'
 
 const SectionD = (props) => {
 
-    const {changeLandAvailability,setProgress} = props;
+    const {changeLandAvailability,incProgress,decProgressTo,visibleLevel} = props;
     const [value, setValue] = useState(null);
     const [buttonDisable, setbuttonDisable] = useState(true);
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        changeLandAvailability(value)
-        if (value != null) {
+        if (value !== null) {
             setbuttonDisable(false);
         }
-    }, [value])
+        if (count !== 0) {
+            decProgressTo(visibleLevel);
+            setCount(0);
+        }
+        changeLandAvailability(value);
+    },[value,visibleLevel])
     
 
     const clicked = () => {
-        if (count == 0) {
-            setProgress();
-            setCount(1)
+        if (count === 0) {
+            incProgress();
+            setCount(1);
         }
     }
     
@@ -32,8 +36,8 @@ const SectionD = (props) => {
             <p className='mb-5'>We can help you find a lot if you don't already have one.</p>
 
             <fieldset className='radio_filed'>
-                <RadioButton value={"I need to buy land."} name={"sectionD"} setValue={setValue} />
-                <RadioButton value={"I already have existing land to build on."} name={"sectionD"} setValue={setValue}/>
+                <RadioButton value={"I need to buy land."} sValue={"Need to buy land"} name={"sectionD"} setValue={setValue} />
+                <RadioButton value={"I already have existing land to build on."} sValue={"I have land"} name={"sectionD"} setValue={setValue}/>
             </fieldset>
 
             <Button
@@ -57,7 +61,8 @@ const SectionD = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         changeLandAvailability: (value) => dispatch(changeLandAvailability(value)),
-        setProgress: () => dispatch(setProgress())
+        incProgress: () => dispatch(incProgress()),
+        decProgressTo: (value) => dispatch(decProgressTo(value)),
     }
 }
 

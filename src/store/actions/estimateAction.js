@@ -21,8 +21,22 @@ export const setBudget = (value) => {
     };
 };
 
-export const setProgress = () => {
+export const incProgress = () => {
     return {
-        type: actionType.SET_PROGRESS_VALUE,
+        type: actionType.INC_PROGRESS_VALUE,
     };
 };
+
+export const decProgressTo = (value) => {
+    return {
+        type: actionType.DEC_PROGRESS_VALUE_TO,
+        payload: value
+    };
+};
+
+export const isNaturalDisaster = (value) => {
+    return {
+        type: actionType.SET_DISASTER_TYPE,
+        payload: value,
+    }
+}

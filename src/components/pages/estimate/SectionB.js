@@ -1,16 +1,16 @@
 import {React,useState} from 'react'
 import { Button } from 'react-bootstrap'
-import { setProgress } from '../../../store/actions/estimateAction';
+import { incProgress } from '../../../store/actions/estimateAction';
 import { connect } from 'react-redux'
 
 const SectionB = (props) => {
 
-    const { setProgress } = props;
+    const { incProgress} = props;
     const [count, setCount] = useState(0);
     
     const clicked = () => {
-        if (count == 0) {
-            setProgress();
+        if (count === 0) {
+            incProgress();
             setCount(1);
         }
     }
@@ -38,7 +38,7 @@ const SectionB = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setProgress: () => dispatch(setProgress()),
+        incProgress: () => dispatch(incProgress()),
     };
 }
 

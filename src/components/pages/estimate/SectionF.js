@@ -1,16 +1,16 @@
 import {React,useState} from 'react'
 import { Button,Form,Row,Col } from 'react-bootstrap'
-import { setProgress } from '../../../store/actions/estimateAction'
+import { incProgress } from '../../../store/actions/estimateAction'
 import { connect } from 'react-redux'
 
 const SectionG = (props) => {
-    const { setProgress } = props;
+    const { incProgress } = props;
     const [count, setCount] = useState(0);
 
 
     const clicked = () => {
-        if (count == 0) {
-            setProgress();
+        if (count === 0) {
+            incProgress();
             setCount(1)
         }
     }
@@ -70,7 +70,7 @@ const SectionG = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setProgress: () => dispatch(setProgress()),
+        incProgress: () => dispatch(incProgress()),
     }
 }
 export default connect(null,mapDispatchToProps)(SectionG)

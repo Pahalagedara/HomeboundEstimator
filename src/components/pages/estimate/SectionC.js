@@ -2,10 +2,10 @@ import {React,useState,useEffect} from 'react'
 import { Button } from 'react-bootstrap'
 import RadioButton from '../../RadioButton'
 import { connect } from 'react-redux';
-import { addLocation,setProgress } from '../../../store/actions/estimateAction';
+import { addLocation,incProgress } from '../../../store/actions/estimateAction';
 
 const SectionC = (props) => {
-    const { setProgress, addLocation } = props;
+    const { incProgress, addLocation } = props;
     const [value, setValue] = useState(null);
     const [buttonDisable, setbuttonDisable] = useState(true);
     const [count, setCount] = useState(0);
@@ -15,13 +15,12 @@ const SectionC = (props) => {
         if (value != null) {
             setbuttonDisable(false);
         }
-    }, [value,buttonDisable])
+    }, [value,buttonDisable,addLocation])
     
     
     const clicked = () => {
-        if (count == 0) {
-            console.log(count)
-            setProgress();
+        if (count === 0) {
+            incProgress();
             setCount(1);
         }
     }
@@ -32,13 +31,13 @@ const SectionC = (props) => {
             <p>Let's see if you're in our operating markets.</p>
 
             <fieldset className='radio_filed'>
-                <RadioButton value={"North Bay Area"} name={"sectionC"} setValue={setValue}/>
-                <RadioButton value={"South Bay Area"} name={"sectionC"} setValue={setValue}/>
-                <RadioButton value={"East Bay"} name={"sectionC"} setValue={setValue}/>
-                <RadioButton value={"Los Angeles Metro Area"} name={"sectionC"} setValue={setValue}/>
-                <RadioButton value={"Bahamas"} name={"sectionC"} setValue={setValue}/>
-                <RadioButton value={"Austin Metro Area"} name={"sectionC"} setValue={setValue}/>
-                <RadioButton value={"Other"} name={"sectionC"} setValue={setValue}/>
+                <RadioButton value={"North Bay Area"} sValue={"North Bay Area"} name={"sectionC"} setValue={setValue}/>
+                <RadioButton value={"South Bay Area"} sValue={"South Bay Area"} name={"sectionC"} setValue={setValue}/>
+                <RadioButton value={"East Bay"} sValue={"East Bay"} name={"sectionC"} setValue={setValue}/>
+                <RadioButton value={"Los Angeles Metro Area"} sValue={"Los Angeles Metro Area"} name={"sectionC"} setValue={setValue}/>
+                <RadioButton value={"Bahamas"} sValue={"Bahamas"} name={"sectionC"} setValue={setValue}/>
+                <RadioButton value={"Austin Metro Area"} sValue={"Austin Metro Area"} name={"sectionC"} setValue={setValue}/>
+                <RadioButton value={"Other"} sValue={"Other"} name={"sectionC"} setValue={setValue}/>
             </fieldset>
 
             <Button
@@ -65,7 +64,7 @@ const SectionC = (props) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addLocation: (value) => dispatch(addLocation(value)),
-        setProgress: () => dispatch(setProgress())
+        incProgress: () => dispatch(incProgress())
     }
 }
 export default connect(null, mapDispatchToProps)(SectionC);

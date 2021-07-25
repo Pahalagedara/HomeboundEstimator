@@ -25,27 +25,37 @@ const Estimate = (props) => {
                             Contact us
                         </a>
                     </p>
-                    <div className="middle">
-                        <h6>What you've <br />told us</h6> 
-                        <p>
-                            <span className='spanFontColor'>
-                                {location}
-                            </span>
-                        </p>
-                    </div>
+                
+                    
+                    {(location !== 0) ? <div className="middle">
+                            <h6>What you've <br />told us</h6>
+                            <p>
+                                <span className='spanFontColor'>
+                                    {location}
+                                </span>
+                            </p>
+                        </div> :null }
 
                     <hr />
-                    <p className='mb-1'>
-                        <span className='spanFontColor'>
-                            Land
-                        </span>
-                    </p>
-                    <p>{landAvailability}</p>
-                    <p className='mb-1'>
-                        <span className='spanFontColor'>Budget
-                        </span>
-                    </p>
-                    <p>{budget}</p>
+                
+                    {(landAvailability !== 0) ? 
+                        <div>
+                            <p className='mb-1'>
+                                <span className='spanFontColor'>
+                                    Land
+                                </span>
+                            </p> 
+                            <p>{landAvailability}</p>
+                        </div>: null}
+                
+                    {(budget !== 0) ?
+                        <div>
+                            <p className='mb-1'>
+                                <span className='spanFontColor'>Budget
+                                </span>
+                            </p>
+                            <p>{budget}</p>
+                        </div> : null}
 
 
                     <p className="watermark">

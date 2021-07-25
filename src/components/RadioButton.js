@@ -2,10 +2,10 @@ import React from 'react'
 
 
 const RadioButton = (props) => {
-    const { name, value, setValue} = props;
+    const { name, value, sValue, setValue} = props;
 
     const cliked = () => {
-        setValue(value);
+        setValue(sValue);
     };
     
     return (

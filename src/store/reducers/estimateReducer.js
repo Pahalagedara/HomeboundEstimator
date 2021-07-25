@@ -4,7 +4,8 @@ const INITIAL_STATE = {
     location: String|null ,
     landAvailability: String|null,
     budget: String|null,
-    progress: Number|10,
+    progress: Number | 10,
+    isNaturalDisaster: Boolean,
 };
 
 const estimateReducer = (state = INITIAL_STATE,action) => {
@@ -27,10 +28,22 @@ const estimateReducer = (state = INITIAL_STATE,action) => {
                 budget: action.payload
             };
         }
-        case actionType.SET_PROGRESS_VALUE: {
+        case actionType.INC_PROGRESS_VALUE: {
             return {
                 ...state,
                 progress: state.progress + 10
+            };
+        }
+        case actionType.DEC_PROGRESS_VALUE_TO: {
+            return {
+                ...state,
+                progress: action.payload
+            };
+        }
+        case actionType.SET_DISASTER_TYPE: {
+            return {
+                ...state,
+                isNaturalDisaster: action.payload
             };
         }
         default:

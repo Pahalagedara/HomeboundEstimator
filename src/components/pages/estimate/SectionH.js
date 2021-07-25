@@ -1,20 +1,24 @@
 import { Button, Figure} from 'react-bootstrap'
 import {React,useState} from 'react'
-import { setProgress } from '../../../store/actions/estimateAction'
+import { incProgress } from '../../../store/actions/estimateAction'
 import { connect } from 'react-redux'
 
 
 const SectionH = (props) => {
 
-    const { setProgress } = props;
+    const { incProgress } = props;
     const [count, setCount] = useState(0);
 
     const clicked = () => {
-        if (count == 0) {
-            setProgress()
+        if (count === 0) {
+            incProgress()
             setCount(1)
         }
-       
+    }
+    const pre = () => {
+        window.scrollTo({
+            id: 'C',
+            behavior: 'smooth'});
     }
     
     return (
@@ -48,7 +52,8 @@ const SectionH = (props) => {
             </Button>
             <label
                 style={{ margin: '0 10px' }}
-                className="mt-5">
+                className="mt-5"
+                onClick={pre}>
                 Previous
             </label>
        
@@ -58,9 +63,8 @@ const SectionH = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setProgress: () => dispatch(setProgress()),
+        incProgress: () => dispatch(incProgress()),
     }
 }
-
 export default connect(null, mapDispatchToProps)(SectionH);
 
