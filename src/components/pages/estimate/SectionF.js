@@ -1,12 +1,12 @@
 import {React,useState} from 'react'
 import { Button,Form,Row,Col } from 'react-bootstrap'
-import { incProgress } from '../../../store/actions/estimateAction'
+import { incProgress} from '../../../store/actions/estimateAction'
 import { connect } from 'react-redux'
+
 
 const SectionG = (props) => {
     const { incProgress } = props;
     const [count, setCount] = useState(0);
-
 
     const clicked = () => {
         if (count === 0) {
@@ -14,9 +14,13 @@ const SectionG = (props) => {
             setCount(1)
         }
     }
+    const pre = () => {
+        document.getElementById("sectionE").scrollIntoView();
+    }
+
     return (
          <div className='quection'>
-            <h2>About you</h2>
+            <h2 id="sectionF">About you</h2>
                 <br />
             <p>We will only use your information
                 to respond to your request.
@@ -61,7 +65,8 @@ const SectionG = (props) => {
                 </Button>
                 <label
                     style={{ margin: '0 10px' }}
-                    className="mt-5">
+                    className="mt-5"
+                    onClick={pre}>
                     Previous
                 </label>
         </div>

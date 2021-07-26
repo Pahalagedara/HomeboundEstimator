@@ -13,23 +13,27 @@ import SectionH from './SectionH'
 const Quections = (props) => {
     
     const { landAvailability, isNaturalDisaster, progress } = props;
-    
+
     return (
         <div className='quections'>
 
-            <SectionA visibleLevel={10}/>
-            { (progress >= 20) ? <SectionB />:null}
-            { (progress >= 30) ? <SectionC />:null}
-            { (progress >= 40) ? <SectionD visibleLevel={40} />:null}
+            {
+                console.log(document.getElementById("1")+" -id shower")
+            }
+
+            <SectionA id="thilina" visibleLevel={10}/>
+            { (progress >= 20) ? <SectionB  />:null}
+            { (progress >= 30) ? <SectionC  />:null}
+            { (progress >= 40) ? <SectionD  visibleLevel={40} />:null}
             {/* normal flow end  */}
             
             {/* divide using  landAvailability */}
-            { ((progress >= 50) && (landAvailability === "Need to buy land"))  ?  <SectionE /> : null}
-            { ((progress >= 50) && (landAvailability === "I have land")) ? <SectionG visibleLevel={50} /> : null}
+            { ((progress >= 50) && (landAvailability === "Need to buy land"))  ?  <SectionE  id="4" /> : null}
+            { ((progress >= 50) && (landAvailability === "I have land")) ? <SectionG  id="5" visibleLevel={50} /> : null}
             
             {/* divide using  isNaturalDisaster state */}
-            { ((progress >= 60) && (!isNaturalDisaster)) ? <SectionE />:null}
-            { ((progress >= 60) && (isNaturalDisaster) && (landAvailability === "I have land")) ? <SectionH />:null}
+            { ((progress >= 60) && (!isNaturalDisaster)) ? <SectionE  id="6" />:null}
+            { ((progress >= 60) && (isNaturalDisaster) && (landAvailability === "I have land")) ? <SectionH  id="7" />:null}
             { ((progress >= 60) && (landAvailability === "Need to buy land")) ? <SectionF />: null}  
             
             {/* divide using  isNaturalDisaster state */}

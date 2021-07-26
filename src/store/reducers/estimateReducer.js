@@ -34,6 +34,12 @@ const estimateReducer = (state = INITIAL_STATE,action) => {
                 progress: state.progress + 10
             };
         }
+        case actionType.DEC_PROGRESS_VALUE: {
+            return {
+                ...state,
+                progress: state.progress - 10
+            };
+        }
         case actionType.DEC_PROGRESS_VALUE_TO: {
             return {
                 ...state,

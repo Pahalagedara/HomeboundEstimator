@@ -16,14 +16,12 @@ const SectionH = (props) => {
         }
     }
     const pre = () => {
-        window.scrollTo({
-            id: 'C',
-            behavior: 'smooth'});
+        document.getElementById("G").scrollIntoView();
     }
     
     return (
         <div className='quection'>
-            <h2 className='mb-5'>We're sorry to hear<br/>about your loss.</h2>
+            <h2 id="sectionH" className='mb-5'>We're sorry to hear<br/>about your loss.</h2>
             <p className='mb-5'><span className='spanFontColor'>Let's get you home.</span></p>
             <p className='mb-5'>
                 When the Tubbs Fire destroyed over 5,600 buildings, including the home of one of our cofounders, he was moved to help people navigate this overwhelming process. He brought together a team of construction, real estate, and technology experts to create a better way to rebuild.

@@ -6,10 +6,11 @@ import RadioButton from '../../RadioButton'
 
 const SectionG = (props) => {
 
-    const { incProgress, decProgressTo, isNaturalDisaster,visibleLevel} = props;
+    const { incProgress,decProgress, decProgressTo, isNaturalDisaster,visibleLevel} = props;
     const [buttonDisable, setbuttonDisable] = useState(true);
     const [count, setCount] = useState(0);
     const [value, setValue] = useState(null);
+
     
 
     const clicked = () => {
@@ -18,6 +19,9 @@ const SectionG = (props) => {
             setCount(1);
         }
         isNaturalDisaster(value);
+    }
+    const pre = () => {
+        document.getElementById("sectionF").scrollIntoView();
     }
 
     useEffect(() => {
@@ -32,7 +36,7 @@ const SectionG = (props) => {
     
     return (
         <div className='quection'>
-            <h2 className='mb-5'>Were you affected by<br/>a natural disaster?</h2>
+            <h2 id="sectionG" className='mb-5'>Were you affected by<br/>a natural disaster?</h2>
             <p className='mb-5'>Homebound's rebuild specialists have helped many homeowners navigate the challenges of rebuilding.</p>
 
             <fieldset className='radio_filed'>
@@ -50,7 +54,8 @@ const SectionG = (props) => {
             </Button>
             <label
                 style={{ margin: '0 10px' }}
-                className="mt-5">
+                className="mt-5"
+                onClick={pre}>
                 Previous
             </label>
         </div>

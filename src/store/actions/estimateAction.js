@@ -27,6 +27,12 @@ export const incProgress = () => {
     };
 };
 
+export const decProgress = () => {
+    return {
+        type: actionType.DEC_PROGRESS_VALUE,
+    };
+};
+
 export const decProgressTo = (value) => {
     return {
         type: actionType.DEC_PROGRESS_VALUE_TO,

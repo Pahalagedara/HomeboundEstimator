@@ -4,6 +4,7 @@ import { Button,ButtonGroup } from 'react-bootstrap'
 import { incProgress } from '../../../store/actions/estimateAction';
 
 const SectionA = (props) => {
+
     const { incProgress} = props;
     const [count, setCount] = useState(0);
     
@@ -16,7 +17,7 @@ const SectionA = (props) => {
 
     return (
         <div className='quection'>
-            <h2 className='mb-5'>What brings you <br />to our site</h2>
+            <h2 id="sectionA"className='mb-5'>What brings you <br />to our site</h2>
             
             <p>Are you looking at building your own home, or helping us build for others?</p>
             <br />

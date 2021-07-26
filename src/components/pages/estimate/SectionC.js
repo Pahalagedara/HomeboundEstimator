@@ -25,9 +25,13 @@ const SectionC = (props) => {
         }
     }
 
+    const pre = () => {
+        document.getElementById("sectionB").scrollIntoView();
+    }
+
     return (
         <div className='quection'>
-            <h2 className='mb-5'>Where would you<br />like to build?</h2>
+            <h2 id="sectionC" className='mb-5'>Where would you<br />like to build?</h2>
             <p>Let's see if you're in our operating markets.</p>
 
             <fieldset className='radio_filed'>
@@ -52,7 +56,8 @@ const SectionC = (props) => {
 
             <label
                 style={{ margin: '0 10px' }}
-                className="mt-5">
+                className="mt-5"
+                onClick={pre}>
                 
                 Previous
             </label>
